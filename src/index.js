@@ -1,8 +1,9 @@
 import React from 'react'
-import { render } from 'react-dom'
+import {render} from 'react-dom'
+import {SkiDayCount} from './components/SkiDayCount'
 
-render(
-	<div>
-	</div>,
+window.React = react;
+render (
+	<SkiDayCount />,
 	document.getElementById('react-container')
 )
