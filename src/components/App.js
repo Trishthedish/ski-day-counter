@@ -28,7 +28,8 @@ getInitialState() {
   }
 },
 countDays(filter) {
-  return this.state.allSkiDays.filter(function(day) {
+  const {allSkiDays} = this.state
+  return allSkiDays.filter((day) => {
       if(filter) {
         return day[filter]
       } else {
