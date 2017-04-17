@@ -5,34 +5,36 @@ import { AddDayForm } from './AddDayForm'
 import { Menu } from './Menu'
 
 export class App extends Component {
-  constructor(props) {
-    super(props)
-      this.state = {
-        allSkiDays:
-        [
-    				{ resort: "Squaw Valley",
-    					date: new Date("1/2/2016"),
-    					powder: true,
-    					backcountry: false
-    				},
-    				{ resort: "Arizona Snowbowl",
-    					date: new Date("1/17/2017"),
-    					powder: false,
-    					backcountry: false
-    				},
-    				{ resort: "Elk Ridge Ski Area",
-    					date: new Date("12/29/2016"),
-    					powder: false,
-    					backcountry: true
-    				}
-        ]
-      }
-}
-countDays(filter) {
+	constructor(props) {
+		super(props)
+		this.state = {
+			allSkiDays: [
+			{
+				resort: "Squaw Valley",
+				date: "2016-01-02",
+				powder: true,
+				backcountry: false
+			}
+		]
+		}
+		this.addDay = this.addDay.bind(this)
+	}
+
+	addDay(newDay) {
+		this.setState({
+			allSkiDays: [
+				...this.state.allSkiDays,
+				newDay
+			]
+		})
+	}
+
+	countDays(filter) {
 		const { allSkiDays } = this.state
 		return allSkiDays.filter(
 			(day) => (filter) ? day[filter] : day).length
 	}
+
 	render() {
 		return (
 			<div className="app">
@@ -46,7 +48,7 @@ countDays(filter) {
 							 		"backcountry"
 							 	)}/> :
 			 (this.props.location.pathname === "/add-day") ?
-			 	<AddDayForm /> :
+			 	<AddDayForm onNewDay={this.addDay}/> :
 			 	<SkiDayList days={this.state.allSkiDays}
 			 				filter={this.props.params.filter}/>
 			}
