@@ -11,6 +11,8 @@ render(
   <Router>
     <Switch>
       <Route exact={true} path="/" component={App} />
+			<Route path="list-days" component={App} />
+			<Route path="add-day" component={App} />
       <Route path="*" component={Whoops404}/>
     </Switch>
   </Router>,
