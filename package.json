@@ -1,4 +1,4 @@
-git {
+{
   "name": "react-essential",
   "version": "1.0.0",
   "description": "A project focusing on React and related tools",
@@ -27,6 +27,7 @@ git {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-icons": "^2.2.3",
-    "react-router": "^4.1.1"
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1"
   }
 }
